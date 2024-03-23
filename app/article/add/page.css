@@ -1,0 +1,11 @@
+.b-i-input {
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+}
+.b-i-title {
+    width: 120px;
+}
+.b-item {
+    display: flex;
+    margin-bottom: 20px;
+}
