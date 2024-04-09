@@ -7,7 +7,7 @@ export default function ArticleItem({ props }: { props: any }) {
     }
     const router = useRouter()
     const toArticleDetail = () => {
-        router.push(`/article/detail?id=${props.id}`)
+        router.push(`/article/detail?id=${props.id}&title=${props.title}`)
     }
     return (
         <div className="flex">

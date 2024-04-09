@@ -4,6 +4,7 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 
 export default function Home() {
+    // 初始化博客列表
     const initList = [
         {title: '假如给我三天光明', content: 'content2', id: 1712648713417, time: 1712648713417},
         {title: '这是一个blog的标题', content: 'content1', id: 1702648713417, time: 1702648713417},
@@ -11,9 +12,6 @@ export default function Home() {
     const [articleList, setArticleList] = useState([])
     useEffect(() => {
         try {
-            // let temp = localStorage.getItem('articleList') || ''
-            // console.log(temp, '123')
-            // let list = JSON.parse(temp) || []
             let list = JSON.parse(localStorage.getItem('articleList') || '[]')
             if (list.length === 0) {
                 list = [...initList]
