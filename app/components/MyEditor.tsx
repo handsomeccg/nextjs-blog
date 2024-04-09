@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
 
-function MyEditor({content, setContent}) {
+function MyEditor({content, setContent}: {content: string, setContent: Function}) {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
     // const [editor, setEditor] = useState(null)                   // JS 语法

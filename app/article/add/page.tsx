@@ -3,8 +3,13 @@
 import "./page.css"
 import { useRouter } from 'next/navigation'
 import {useState} from "react";
-import MyEditor from "@/app/components/MyEditor";
+// import MyEditor from "@/app/components/MyEditor";
 import Link from "next/link";
+import dynamic from 'next/dynamic'
+
+const MyEditor = dynamic(() => import('../../components/MyEditor'), {
+    ssr: false,
+})
 export default function ArticleDetail() {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -20,7 +25,7 @@ export default function ArticleDetail() {
         }
         let curList = []
         try {
-            curList = JSON.parse(localStorage.getItem('articleList')) || []
+            curList = JSON.parse(localStorage.getItem('articleList') || '[]')
         } catch (e) {
         }
         curList.push({
@@ -40,7 +45,7 @@ export default function ArticleDetail() {
         </div>
       <div className="b-item">
           <div className="b-i-title">Title:</div>
-          <input className="b-i-input" onInput={e => setTitle(e.target.value)}/>
+          <input className="b-i-input" onInput={e => setTitle((e.target as HTMLInputElement).value)}/>
       </div>
         <div className="b-item">
             <div className="b-i-title">Content:</div>

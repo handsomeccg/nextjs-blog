@@ -1,6 +1,6 @@
 import {useRouter} from "next/navigation";
 
-export default function ArticleItem({ props }) {
+export default function ArticleItem({ props }: { props: any }) {
     const getTimeStr = (date: Date) => {
         const time = new Date(date)
         return `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()}`
@@ -11,7 +11,7 @@ export default function ArticleItem({ props }) {
     }
     return (
         <div className="flex">
-            <div>{props?.time ? getTimeStr(props.time) : ''}</div>
+            <div className="w-24">{props?.time ? getTimeStr(props.time) : ''}</div>
             <h3
                 className="ml-4 cursor-pointer hover:text-red-400"
                 onClick={toArticleDetail}
