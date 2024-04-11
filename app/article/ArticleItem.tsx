@@ -1,3 +1,4 @@
+'use client'
 import {useRouter} from "next/navigation";
 
 export default function ArticleItem({ props }: { props: any }) {
@@ -7,15 +8,15 @@ export default function ArticleItem({ props }: { props: any }) {
     }
     const router = useRouter()
     const toArticleDetail = () => {
-        router.push(`/article/detail?id=${props.id}&title=${props.title}`)
+        router.push(`/article/detail/${props.id}?title=${props.title}`)
     }
     return (
         <div className="flex">
             <div className="w-24">{props?.time ? getTimeStr(props.time) : ''}</div>
-            <h3
+            <h5
                 className="ml-4 cursor-pointer hover:text-red-400"
                 onClick={toArticleDetail}
-            >{props?.title || ''}</h3>
+            >{props?.title || ''}</h5>
         </div>
     );
 
