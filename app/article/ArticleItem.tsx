@@ -1,7 +1,7 @@
 'use client'
 import {useRouter} from "next/navigation";
 
-export default function ArticleItem({ props }: { props: any }) {
+export default function ArticleItem({props}: { props: any }) {
     const getTimeStr = (date: Date) => {
         const time = new Date(date)
         return `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()}`

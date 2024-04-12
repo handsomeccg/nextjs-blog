@@ -1,9 +1,8 @@
-
 import Link from "next/link";
 import {Suspense} from "react";
 import DetailContent from "@/components/DetailContent";
 
-export async function generateMetadata({ params, searchParams }: any, parent: any) {
+export async function generateMetadata({params, searchParams}: any, parent: any) {
     // 读取路由参数
     const title = searchParams.title
     return {
@@ -11,7 +10,7 @@ export async function generateMetadata({ params, searchParams }: any, parent: an
     }
 }
 
-export default async function ArticleDetail({ params }: { params: any }) {
+export default async function ArticleDetail({params}: { params: any }) {
     const id = params.id;
     return (
         <div className="mt-14 ml-36">
@@ -19,9 +18,8 @@ export default async function ArticleDetail({ params }: { params: any }) {
                 <Link href="/">返回文章列表</Link>
             </div>
             <Suspense fallback={<div>文章加载中...</div>}>
-                <DetailContent id={id} />
+                <DetailContent id={id}/>
             </Suspense>
-
         </div>
     )
 }
